@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 const styles = `
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
  
@@ -88,11 +89,10 @@ const styles = `
   }
 `;
 const NAV_LINKS = [
-  { label: "Home", active: true },
-  { label: "ISS Tracker" },
-  { label: "Sky Map" },
-  { label: "Events" },
-  { label: "Visualise" },
+  { label: "Home", path: "/" },
+  { label: "ISS Tracker", path: "/issTracker" },
+  { label: "Sky Map", path: "/skymap" },
+  { label: "Events", path: "/events" },
 ];
 const FEATURES = [
   {
@@ -253,11 +253,13 @@ export default function Home() {
           INTERNSTELLAR
         </div>
         <ul className="st-nav-links">
-          {NAV_LINKS.map((l) => (
-            <li key={l.label}>
-              <a className={l.active ? "active" : ""}>{l.label}</a>
-            </li>
-          ))}
+            {NAV_LINKS.map((l) => (
+                <li key={l.label}>
+                    <Link to={l.path}>
+                    {l.label}
+                    </Link>
+                </li>
+            ))}
         </ul>
       </nav>
 
