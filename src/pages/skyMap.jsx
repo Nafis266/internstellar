@@ -35,8 +35,8 @@ export default function SkyMap() {
 
   useEffect(() => {
     const container = mountRef.current;
-    const W = container.clientWidth;
-    const H = container.clientHeight;
+    const W = window.innerWidth;
+    const H = window.innerHeight;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(W, H);
@@ -110,5 +110,5 @@ export default function SkyMap() {
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: "100%", height: 600, background: "#000" }} />;
+  return <div ref={mountRef} style={{ width: "100vw", height: "100vh", background: "#000" }} />;
 }
