@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import Navbar from "./navbar.jsx";
 
 const STARS = [
   { name: "Sirius",     ra: 101.3, dec: -16.7, mag: -1.46, color: 0xadd8ff },
@@ -110,5 +111,10 @@ export default function SkyMap() {
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: "100vw", height: "100vh", background: "#000" }} />;
+  return (
+    <>
+      <Navbar />
+      <div ref={mountRef} style={{ width: "100vw", height: "100vh", background: "#000" }} />;
+    </>
+  )
 }
